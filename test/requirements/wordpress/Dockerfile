@@ -10,14 +10,13 @@ RUN cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR
 RUN chown -R root:root /var/www/wordpress
 
 RUN mkdir -p /var/www/wordpress \
-	&& mkdir -p /run/php \
+	&& mkdir -p /run/php
 
 RUN chown -R www-data:www-data /var/www/ \
-	&& chmod -R 755 /var/www/
+	&& chmod -R 755 /var/www
 
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+COPY tool/start_wp.sh /usr/local/start_wp.sh
 
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN chmod +x wp-cli.phar
-RUN mv wp-cli.phar /usr/local/bin/wp
+ENTRYPOINT [ "sh", "/usr/local/start_wp.sh" ]
 
