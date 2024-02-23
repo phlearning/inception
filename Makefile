@@ -1,7 +1,7 @@
 NAME = inception
 PATH_DOCKER_COMPOSE = srcs/docker-compose.yml
-PATH_V_WORDPRESS = /Users/pvong/data/wordpress
-PATH_V_MARIADB = /Users/pvong/data/mariadb
+PATH_V_WORDPRESS = /home/pvong/data/wordpress
+PATH_V_MARIADB = /home/pvong/data/mariadb
 RESET_COLOR = \033[0m
 
 all : prepare down build run
