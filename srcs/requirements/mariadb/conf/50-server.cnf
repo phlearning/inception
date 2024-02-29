@@ -25,5 +25,6 @@ collation-server      = utf8mb4_general_ci
 [embedded]
 
 [mariadb]
+lower_case_table_names=2
 
 [mariadb-10.3]
