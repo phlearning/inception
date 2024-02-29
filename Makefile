@@ -1,8 +1,26 @@
 NAME = inception
 PATH_DOCKER_COMPOSE = srcs/docker-compose.yml
-PATH_V_WORDPRESS = /home/pvong/data/wordpress
-PATH_V_MARIADB = /home/pvong/data/mariadb
+LOGIN = pvong
 RESET_COLOR = \033[0m
+
+#  === Exported Variables ===
+ifeq ($(shell uname),Darwin)
+	HOME = /Users/$(LOGIN)
+else
+	HOME = /home/$(LOGIN)
+endif
+
+export PATH_V_WORDPRESS := $(HOME)/data/wordpress
+export PATH_V_MARIADB := $(HOME)/data/mariadb
+
+
+ifeq ($(shell uname),Darwin)
+	export STUDENT_DOMAIN = localhost
+else
+	export STUDENT_DOMAIN = $(LOGIN).42.ch
+endif
+
+#  === Rules ===
 
 all : prepare down build run
 
