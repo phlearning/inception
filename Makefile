@@ -25,16 +25,16 @@ endif
 all : prepare down build run
 
 run:
-	docker-compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} up
+	docker compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} up
 
-run-daemon:
-	docker-compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} up -d
+run-detached:
+	docker compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} up -d
 
 down:
-	docker-compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} down
+	docker compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} down
 
 stop:
-	docker-compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} stop
+	docker compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} stop
 
 prepare:
 	if [ ! -d ${PATH_V_WORDPRESS} ]; then \
@@ -45,7 +45,7 @@ prepare:
 	fi
 
 build:
-	docker-compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} build
+	docker compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} build
 
 clean: down
 	docker system prune -a
@@ -71,7 +71,7 @@ delete-volumes :
 status :
 
 	@echo "\033[44mRunning Containers :${RESET_COLOR}"
-	@docker-compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} ps
+	@docker compose -f ${PATH_DOCKER_COMPOSE} -p ${NAME} ps
 	@echo ""
 
 	@echo "\033[44mImages :${RESET_COLOR}"
