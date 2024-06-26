@@ -78,7 +78,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Usage <a name = "usage"></a>
 
    1. Use `make` to launch the application
-   2. Open your web browser and navigate to `https://localhost:443/` or the domain specified. You should now see a wordpress website.
+   2. Open your web browser and navigate to `https://localhost:443/` or the domain specified (https://domain:443/), I insist on the https as there is no redirection from http to https in my nginx config. You should now see a wordpress website.
    3. Adjust the `.env` file if you wish to change the user and admin access.
 
 ### Make commands
