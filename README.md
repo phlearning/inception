@@ -12,17 +12,20 @@
     - [Installing](#installing)
   - [Usage ](#usage-)
     - [Make commands](#make-commands)
+  - [Acknowledgements ](#acknowledgements-)
 
 ## About <a name = "about"></a>
 
-This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine.  
+This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine. **We cannot pull ready-made Docker images**
+
+> *"You also have to write your own Dockerfiles, one per service. The Dockerfiles must be called in your docker-compose.yml by your Makefile. It means you have to build yourself the Docker images of your project. It is then forbidden to pull ready-made Docker images, as well as using services such as DockerHub(Alpine/Debian being excluded from this rule)."* - from the subject
 
 ###  What is docker ?
 
-- Docker is a platform that enables developers to create, deploy, and run applications in isolated environments called containers.  
-- Containers package an application and its dependencies, ensuring consistency across different development and production environments.  
+- Docker is a platform that enables developers to create, deploy, and run applications in isolated environments called containers.
+- Containers package an application and its dependencies, ensuring consistency across different development and production environments.
 - By using Docker, developers can easily manage application components, streamline workflows, and improve scalability and performance through efficient resource utilization.
-  
+
 ### Setup Details
 
 - NGINX Container: Must support TLSv1.2 or TLSv1.3 only.
@@ -56,19 +59,19 @@ These instructions will get you a copy of the project up and running on your loc
     ```
 2. Download docker and docker compose if needed (https://docs.docker.com/get-docker/)
 3. Adjust the Makefile
-    - Change the login to your computer's account username  
-    
+    - Change the login to your computer's account username
+
         ```
-        To get your login for the makefile:  
+        To get your login for the makefile:
             `echo ${HOME}`
 
-        You should get something like this:  
+        You should get something like this:
             `/home/pvong` - the pvong here is my login
         ```
 
 4. Change the `.env` file to your liking
    - Note: If you want to run locally change the domains to localhost in the .env file. If not then adjust your `/etc/hosts`
-   - If you are in a Virtual Machine you safely adjust the `/etc/hosts` file to reroute `127.0.0.1` to your domain specified in the .env file.
+   - If you are in a Virtual Machine you can safely adjust the `/etc/hosts` file to reroute `127.0.0.1` to your domain specified in the .env file.
 
 5. Launch with `make` in the cli while inside the project folder.
 
@@ -82,9 +85,31 @@ These instructions will get you a copy of the project up and running on your loc
  - `make`: Create the folders, build the images and run the containers.
  - `make run-detached`: Run the containers while still accessing the terminal.
  - `make down`: To stop and remove the containers.
- - `make stop`: To stop  the containers, use `make run` to rerun if needed.
+ - `make stop`: To stop the containers, use `make run` to rerun if needed.
  - `make clear`: To delete any containers, images, docker networks and volumes.
  - `make clean`: To prune any containers and images not in use or named after the given var NAME in the makefile (inception)
  - `make fclean`: Similar to make clean but also clean the volumes.
  - `make delete-volumes`: To clean only the volumes.
  - `make status`: To check the status of the containers, images, volumes and network.
+
+
+## Acknowledgements <a name = "acknowledgement"></a>
+ - Help throughout the whole project:
+   - [FXC-ai](https://github.com/FXC-ai/Inception)'s help (helped in person 🏆)
+   - [Killian-Morin](https://github.com/Killian-Morin/42-Inception)'s help (do take a look at their readme for the sources)
+   - https://tuto.grademe.fr/inception/ (🌟 recommend to start with this)
+   - https://github.com/vbachele/Inception (🐐 really good)
+
+ - Docker:
+   - https://docs.docker.com/
+   - https://www.youtube.com/watch?v=gAkwW2tuIqE
+
+ - Nginx:
+   - https://docs.nginx.com/
+   - http://nginx.org/en/docs/beginners_guide.html
+
+ - MariaDB:
+   - https://mariadb.com/kb/en/training-tutorials/
+
+ - Wordpress:
+   - Refer to https://github.com/vbachele/Inception
