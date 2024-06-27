@@ -59,14 +59,17 @@ These instructions will get you a copy of the project up and running on your loc
     ```
 2. Download docker and docker compose if needed (https://docs.docker.com/get-docker/)
 3. Adjust the Makefile
-    - Change the login to your computer's account username
+    - Change the login var to your computer's user
 
         ```
-        To get your login for the makefile:
+        To get your user for the makefile:
             `echo ${HOME}`
 
         You should get something like this:
-            `/home/pvong` - the pvong here is my login
+            `/home/pvong` - the pvong here is my user
+
+        Or you can just do:
+            `echo ${USER}`
         ```
 
 4. Change the `.env` file to your liking
